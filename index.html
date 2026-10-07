@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0b0d12">
+<title>FRANK — Resume Builder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">F</div><div><b>FRANK</b><span>RESUME BUILDER</span></div></div>
+    <div class="top-actions">
+      <span id="saveStatus" class="save-status">● Saved locally</span>
+      <button class="ghost" id="resetBtn">Reset</button>
+      <button class="primary" id="downloadBtn">↓ Download PDF</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="editor">
+      <div class="editor-head"><div><span class="eyebrow">RESUME STUDIO</span><h1>Build your resume</h1></div><button id="mobilePreview" class="preview-btn">Preview</button></div>
+
+      <div class="progress-card"><div><b>Resume strength</b><strong id="strength">0%</strong></div><div class="progress"><i id="strengthBar"></i></div><small id="strengthText">Start adding your details.</small></div>
+
+      <section class="form-section open">
+        <button class="section-toggle">01 <span>Personal details</span><b>⌃</b></button>
+        <div class="section-body">
+          <div class="photo-row"><div class="photo" id="photoPreview">SK</div><div><button class="outline" id="photoBtn">Upload photo</button><input id="photoInput" type="file" accept="image/*" hidden><small>JPG or PNG · Optional</small></div></div>
+          <div class="grid two">
+            <label>Full name<input data-key="name" placeholder="Sanjay K"></label>
+            <label>Professional title<input data-key="role" placeholder="Frontend Developer"></label>
+          </div>
+          <div class="grid two">
+            <label>Email<input data-key="email" placeholder="you@example.com"></label>
+            <label>Phone<input data-key="phone" placeholder="+91 98765 43210"></label>
+          </div>
+          <div class="grid two">
+            <label>Location<input data-key="location" placeholder="Tamil Nadu, India"></label>
+            <label>Website<input data-key="website" placeholder="yourportfolio.dev"></label>
+          </div>
+          <div class="grid two">
+            <label>LinkedIn<input data-key="linkedin" placeholder="linkedin.com/in/username"></label>
+            <label>GitHub<input data-key="github" placeholder="github.com/username"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section open">
+        <button class="section-toggle">02 <span>Professional summary</span><b>⌃</b></button>
+        <div class="section-body"><label>About you<textarea data-key="summary" rows="5" placeholder="Write a concise professional summary..."></textarea></label></div>
+      </section>
+
+      <section class="form-section open">
+        <button class="section-toggle">03 <span>Experience</span><b>⌃</b></button>
+        <div class="section-body" id="experienceList"></div>
+      </section>
+
+      <section class="form-section open">
+        <button class="section-toggle">04 <span>Education</span><b>⌃</b></button>
+        <div class="section-body" id="educationList"></div>
+      </section>
+
+      <section class="form-section open">
+        <button class="section-toggle">05 <span>Skills</span><b>⌃</b></button>
+        <div class="section-body"><div class="tag-input"><input id="skillInput" placeholder="Type a skill and press Enter"><button id="addSkill">Add</button></div><div id="skillTags" class="tags"></div></div>
+      </section>
+
+      <section class="form-section open">
+        <button class="section-toggle">06 <span>Projects</span><b>⌃</b></button>
+        <div class="section-body" id="projectList"></div>
+      </section>
+
+      <section class="form-section">
+        <button class="section-toggle">07 <span>Certifications</span><b>⌃</b></button>
+        <div class="section-body" id="certList"></div>
+      </section>
+
+      <section class="form-section">
+        <button class="section-toggle">08 <span>Languages</span><b>⌃</b></button>
+        <div class="section-body"><div id="languageList"></div><button class="add-btn" id="addLanguage">＋ Add language</button></div>
+      </section>
+
+      <section class="form-section">
+        <button class="section-toggle">09 <span>Customize</span><b>⌃</b></button>
+        <div class="section-body">
+          <label>Accent color<div class="color-row"><input type="color" id="accent" value="#5b5ff5"><span id="colorValue">#5B5FF5</span></div></label>
+          <label>Template<select id="template"><option value="modern">Modern</option><option value="minimal">Minimal</option><option value="executive">Executive</option></select></label>
+        </div>
+      </section>
+    </aside>
+
+    <main class="preview-area">
+      <div class="preview-toolbar"><span>LIVE PREVIEW</span><div><button class="scale" data-scale=".9">−</button><b id="zoom">100%</b><button class="scale" data-scale="1.1">＋</button></div></div>
+      <div class="paper-wrap"><article id="resume" class="resume modern"></article></div>
+    </main>
+  </div>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
